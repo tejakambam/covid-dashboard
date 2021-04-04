@@ -1,0 +1,16 @@
+﻿<!-- nav -->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a class="navbar-brand text-dark" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" *ngIf="user" (click)="logout()">Logout ({{ user.username }})</a>
+      <a class="p-2 text-dark" *ngIf="!user" routerLink="/account/login">Login</a>
+      <a class="p-2 text-dark" *ngIf="!user" routerLink="/account/register">Register</a>
+    </nav>
+    
+</div>
+
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>
